@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events - Sing Moray</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-prussian-blue text-light-beige font-body">
+    <nav class="bg-prussian-blue p-4 border-b border-sunshine-yellow">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-2xl font-bold font-heading">Sing Moray</a>
+            <div>
+                <a href="index.html" class="nav-link text-white mx-3">Home</a>
+                <a href="index.html#about" class="nav-link text-white mx-3">About</a>
+                <a href="index.html#join" class="nav-link text-white mx-3">Join Us</a>
+                <a href="events.html" class="nav-link text-white mx-3 active">Events</a>
+                <a href="index.html#contact" class="nav-link text-white mx-3">Contact</a>
+                <a href="https://www.facebook.com/singmoray" target="_blank" class="nav-link text-white mx-3 hover:text-sunshine-yellow">Facebook</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gradient-to-r from-prussian-blue to-dark-grey py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-heading mb-4 text-sunshine-yellow">Upcoming Events</h1>
+            <p class="text-xl font-body">Join us for our upcoming performances and concerts</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-12">
+        <!-- December Concert -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-sunshine-yellow p-6">
+                    <h2 class="text-3xl font-heading text-prussian-blue mb-2">Christmas Concert 2025</h2>
+                    <div class="flex flex-wrap items-center gap-4 text-prussian-blue justify-center md:justify-start">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="font-semibold">Friday, December 12th, 2025</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="font-semibold">7:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <h3 class="text-2xl font-heading text-prussian-blue mb-4">Concert Details</h3>
+                            <p class="text-gray-700 mb-4">
+                                Join Sing Moray for our annual Christmas concert featuring traditional carols, 
+                                and festive favorites. This special evening promises 
+                                to fill your heart with the joy of the season.
+                            </p>
+                            <div class="space-y-2 text-gray-700">
+                                <p><strong>Location:</strong> St Giles Church, Elgin</p>
+                                <p><strong>Duration:</strong> Approximately 90 minutes</p>
+                    
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-heading text-prussian-blue mb-4">Get Your Tickets</h3>
+                            <p class="text-gray-700 mb-4">
+                                Secure your seats for this magical evening. Tickets are available online 
+                                through our trusted partner TicketSource.
+                            </p>
+                            
+                            <!-- TicketSource Integration -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div id="embedTS_EHGJDI" style="width:100%;"></div>
+                                <script type="text/javascript">
+                                  (function() {
+                                    var el = document.createElement("script");
+                                    el.src = "https://www.ticketsource.co.uk/ticketshop/EHGJDI";
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(el, s);
+                                  })();
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Events Placeholder -->
+        <section>
+            <h2 class="text-3xl font-heading text-sunshine-yellow mb-8 text-center">More Events Coming Soon</h2>
+            <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                <p class="text-gray-700 text-lg mb-4">
+                    We're planning more exciting events for 2025! Stay tuned for updates on our upcoming performances.
+                </p>
+                <p class="text-gray-600">
+                    Follow us on <a href="https://www.facebook.com/singmoray" target="_blank" class="text-sunshine-yellow hover:underline">Facebook</a> 
+                    or <a href="mailto:hello@singmoray.co.uk" class="text-sunshine-yellow hover:underline">contact us</a> 
+                    to be notified about future events.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark-grey text-light-beige text-center py-4 border-t border-sunshine-yellow">
+        <p class="font-body">&copy; 2024 Sing Moray. All rights reserved.</p>
+    </footer>
+</body>
+</html>

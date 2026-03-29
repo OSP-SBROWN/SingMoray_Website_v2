@@ -13,12 +13,17 @@
 <body class="bg-prussian-blue text-light-beige font-body">
     <nav class="bg-prussian-blue p-4 border-b border-sunshine-yellow">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-white text-2xl font-bold font-heading">Sing Moray</a>
+            <a href="index.html" class="text-white text-2xl font-bold font-heading flex items-center">
+                <img src="images/SingMoray Logo.jpg" alt="Sing Moray Logo" class="nav-logo">
+                Sing Moray
+            </a>
             <div>
                 <a href="index.html" class="nav-link text-white mx-3 active">Home</a>
                 <a href="#about" class="nav-link text-white mx-3">About</a>
                 <a href="#join" class="nav-link text-white mx-3">Join Us</a>
                 <a href="events.html" class="nav-link text-white mx-3">Events</a>
+                <a href="social.html" class="nav-link text-white mx-3">Social</a>
+                <a href="gallery.html" class="nav-link text-white mx-3">Gallery</a>
                 <a href="#contact" class="nav-link text-white mx-3">Contact</a>
                 <a href="https://www.facebook.com/singmoray" target="_blank" class="nav-link text-white mx-3 hover:text-sunshine-yellow">Facebook</a>
             </div>
@@ -30,9 +35,9 @@
         <div class="overlay p-8 rounded">
             <h1 class="text-5xl font-heading mb-4 text-sunshine-yellow">Sing Moray</h1>
             <p class="text-xl mb-6 font-body">A Community Choir for All</p>
-            <p class="text-lg font-body mb-6">Join us for our Christmas Concert on December 12th at 7:00 PM</p>
+            <p id="next-event-text" class="text-lg font-body mb-6">Join us for our upcoming performances across Moray</p>
             <div class="space-x-4">
-                <a href="events.html" class="bg-sunshine-yellow text-prussian-blue py-2 px-6 rounded font-semibold hover:bg-orange transition-colors">Get Tickets</a>
+                <a href="events.html" id="next-event-btn" class="bg-sunshine-yellow text-prussian-blue py-2 px-6 rounded font-semibold hover:bg-orange transition-colors">See Events</a>
                 <a href="#join" class="bg-transparent border-2 border-sunshine-yellow text-sunshine-yellow py-2 px-6 rounded font-semibold hover:bg-sunshine-yellow hover:text-prussian-blue transition-colors">Join Us</a>
             </div>
         </div>
@@ -151,7 +156,29 @@
     </section>
 
     <footer class="bg-dark-grey text-light-beige text-center py-4 border-t border-sunshine-yellow">
-        <p class="font-body">&copy; 2024 Sing Moray. All rights reserved.</p>
+        <p class="font-body">&copy; 2026 Sing Moray. All rights reserved.</p>
     </footer>
+
+    <script src="events.js"></script>
+    <script>
+        (function() {
+            const now = new Date();
+            now.setHours(0, 0, 0, 0);
+
+            const next = events
+                .filter(e => new Date(e.date + "T00:00:00") >= now)
+                .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+
+            if (next) {
+                const dateObj = new Date(next.date + "T00:00:00");
+                const formatted = dateObj.toLocaleDateString('en-GB', {
+                    weekday: 'long', day: 'numeric', month: 'long'
+                });
+                document.getElementById('next-event-text').textContent =
+                    `Next up: ${next.name} — ${formatted}, ${next.location}`;
+                document.getElementById('next-event-btn').textContent = 'See Events';
+            }
+        })();
+    </script>
 </body>
 </html>

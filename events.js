@@ -1,0 +1,66 @@
+// Shared event data - update events here and both index.html and events.html will pick them up
+const events = [
+    {
+        name: "MacMoray Festival",
+        date: "2026-05-03",
+        time: null,
+        location: "Cooper Park, Elgin",
+        description: "Sing Moray performs at the MacMoray Festival (festival runs 2nd & 3rd May).",
+        tickets: "Available via the <a href='https://www.facebook.com/macmoray' target='_blank'>MacMoray Facebook page</a> or <a href='https://www.ybdmusic.com' target='_blank'>ybdmusic.com</a>",
+        ticketUrl: "https://www.ybdmusic.com"
+    },
+    {
+        name: "Dance North / RISE 2026 / Guuranda X",
+        date: "2026-05-31",
+        time: null,
+        location: "Findhorn",
+        description: "Sing Moray at the RISE 2026 festival (festival runs 29th-31st May).",
+        tickets: "Ticketing information to be confirmed.",
+        ticketUrl: null
+    },
+    {
+        name: "Rotary Motorfun",
+        date: "2026-06-14",
+        time: null,
+        location: "Cooper Park, Elgin",
+        description: "Sing Moray performs at the Rotary Motorfun event.",
+        tickets: "Available via the <a href='https://www.facebook.com/events' target='_blank'>Facebook page</a> linking to <a href='https://www.ticketsource.co.uk' target='_blank'>ticketsource.co.uk</a>",
+        ticketUrl: "https://www.ticketsource.co.uk"
+    },
+    {
+        name: "SMCC Summer Concert",
+        date: "2026-06-28",
+        time: "7:00 PM",
+        location: "St Giles Church, Elgin",
+        description: "Our summer concert featuring a wonderful selection of music. A perfect summer evening out.",
+        tickets: "Available via choir members. Online pre-sale details to be confirmed.",
+        ticketUrl: null
+    },
+    {
+        name: "Christmas Concert 2026",
+        date: "2026-12-12",
+        time: "7:00 PM",
+        location: "St Giles Church, Elgin",
+        description: "Join Sing Moray for our annual Christmas concert featuring traditional carols and festive favourites.",
+        tickets: "Ticket details to be confirmed closer to the date.",
+        ticketUrl: null
+    },
+    {
+        name: "Christmas Concert 2025",
+        date: "2025-12-12",
+        time: "7:00 PM",
+        location: "St Giles Church, Elgin",
+        description: "Our 2025 Christmas concert featuring traditional carols and festive favourites.",
+        tickets: null,
+        ticketUrl: null
+    },
+    {
+        name: "First Independent Concert",
+        date: "2025-06-01",
+        time: "7:00 PM",
+        location: "St Giles Church, Elgin",
+        description: "Sing Moray's first ever independent concert, with a beautiful and challenging repertoire directed by Shaun Brown. An amazing turnout from the audience made this a truly special evening.",
+        tickets: null,
+        ticketUrl: null
+    }
+];

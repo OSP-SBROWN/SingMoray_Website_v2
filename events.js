@@ -30,7 +30,7 @@ const events = [
     {
         name: "SMCC Summer Concert",
         date: "2026-06-28",
-        time: "7:00 PM",
+        time: "4:00 PM",
         location: "St Giles Church, Elgin",
         description: "Our summer concert featuring a wonderful selection of music. A perfect summer evening out.",
         tickets: "Available via choir members. Online pre-sale details to be confirmed.",

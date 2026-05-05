@@ -10,13 +10,22 @@ const events = [
         ticketUrl: "https://www.ybdmusic.com"
     },
     {
-        name: "Dance North / RISE 2026 / Guuranda X",
+        name: "Guuranda X RISE — Afternoon Performance",
         date: "2026-05-31",
-        time: null,
-        location: "Findhorn",
-        description: "Sing Moray at the RISE 2026 festival (festival runs 29th-31st May).",
-        tickets: "Ticketing information to be confirmed.",
-        ticketUrl: null
+        time: "2:00 PM",
+        location: "The Park Ecovillage, Findhorn",
+        description: "Sing Moray joins Jacob Boehme's <em>Guuranda X RISE</em> as community voices in this family-friendly performance of song, movement and ceremony, led by Narungga artists. Part of <em>Global Indigenous Voices</em> at Dance North Scotland's RISE Festival Weekend (29-31 May).",
+        tickets: "£20 per performance, or included with the RISE Festival Weekend pass. Book via <a href='https://www.ticketsource.com/dance-north-scotland?eventref=rise2026' target='_blank'>TicketSource</a>. Full programme at <a href='https://www.risefestival.scot/rise-festival-weekend' target='_blank'>risefestival.scot</a>.",
+        ticketUrl: "https://www.ticketsource.com/dance-north-scotland?eventref=rise2026"
+    },
+    {
+        name: "Guuranda X RISE — Evening Performance",
+        date: "2026-05-31",
+        time: "7:00 PM",
+        location: "The Park Ecovillage, Findhorn",
+        description: "Second performance of Jacob Boehme's <em>Guuranda X RISE</em>, with Sing Moray contributing community voices. Part of <em>Global Indigenous Voices</em> at Dance North Scotland's RISE Festival Weekend.",
+        tickets: "£20 per performance, or included with the RISE Festival Weekend pass. Book via <a href='https://www.ticketsource.com/dance-north-scotland?eventref=rise2026' target='_blank'>TicketSource</a>.",
+        ticketUrl: "https://www.ticketsource.com/dance-north-scotland?eventref=rise2026"
     },
     {
         name: "Rotary Motorfun",

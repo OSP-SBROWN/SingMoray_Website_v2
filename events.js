@@ -33,8 +33,8 @@ const events = [
         time: null,
         location: "Cooper Park, Elgin",
         description: "Sing Moray performs at the Rotary Motorfun event.",
-        tickets: "Available via the <a href='https://www.facebook.com/events' target='_blank'>Facebook page</a> linking to <a href='https://www.ticketsource.co.uk' target='_blank'>ticketsource.co.uk</a>",
-        ticketUrl: "https://www.ticketsource.co.uk"
+        tickets: null,
+        ticketUrl: null
     },
     {
         name: "SMCC Summer Concert",

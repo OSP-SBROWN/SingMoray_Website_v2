@@ -42,8 +42,8 @@ const events = [
         time: "4:00 PM",
         location: "St Giles Church, Elgin",
         description: "Our summer concert featuring a wonderful selection of music. A perfect summer evening out.",
-        tickets: "Available via choir members. Online pre-sale details to be confirmed.",
-        ticketUrl: null
+        tickets: "Book online via <a href='https://www.ticketsource.com/booking/select/ngwwwjjddyok' target='_blank'>TicketSource</a>, or available via choir members.",
+        ticketUrl: "https://www.ticketsource.com/booking/select/ngwwwjjddyok"
     },
     {
         name: "Christmas Concert 2026",

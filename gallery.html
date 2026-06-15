@@ -9,6 +9,46 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+    /* Brand colour utilities (the prebuilt Tailwind CDN doesn't include our custom palette) */
+    .bg-prussian-blue{background-color:#003049}.text-prussian-blue{color:#003049}
+    .bg-sunshine-yellow{background-color:#FCBF49}.text-sunshine-yellow{color:#FCBF49}
+    .border-sunshine-yellow{border-color:#FCBF49}.text-light-beige{color:#EAE2B7}
+    .bg-light-beige{background-color:#EAE2B7}.bg-dark-grey{background-color:#1A1A1A}
+    .text-orange{color:#F77F00}.bg-orange{background-color:#F77F00}.bg-imperial-red{background-color:#D62828}
+    .hover\:bg-orange:hover{background-color:#F77F00}.hover\:text-sunshine-yellow:hover{color:#FCBF49}.hover\:text-orange:hover{color:#F77F00}
+
+    /* Mosaic gallery */
+    .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;grid-auto-flow:dense;gap:10px}
+    .mosaic .tile{overflow:hidden;border-radius:6px;position:relative}
+    .mosaic .tile img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .4s ease}
+    .mosaic .tile:hover img{transform:scale(1.06)}
+    .col-2{grid-column:span 2}
+    .row-2{grid-row:span 2}
+    .mosaic-head{grid-column:1 / -1;display:flex;align-items:center;gap:1rem;margin-top:1rem}
+    .mosaic-head .rule{flex:1;height:2px;background:#FCBF49;opacity:.5}
+    @media (max-width:768px){
+      .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}
+      .col-2{grid-column:span 2}
+      .row-2{grid-row:span 1}
+    }
+
+    /* Slideshow viewer */
+    .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:60;align-items:center;justify-content:center}
+    .lb.open{display:flex}
+    .lb #lbImg{max-width:86%;max-height:86%;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.6);cursor:pointer;user-select:none}
+    .lb button{position:absolute;background:rgba(0,0,0,.4);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+    .lb button:hover{background:rgba(0,0,0,.75);color:#FCBF49}
+    .lb-close{top:18px;right:24px;font-size:2rem;line-height:1;width:48px;height:48px;border-radius:50%}
+    .lb-prev,.lb-next{top:50%;transform:translateY(-50%);font-size:2.6rem;line-height:1;width:60px;height:84px;border-radius:8px}
+    .lb-prev{left:16px}.lb-next{right:16px}
+    .lb-caption{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#EAE2B7;font-family:'Source Sans Pro',sans-serif;font-size:.95rem;pointer-events:none}
+    .lb-caption #lbCount{color:#FCBF49;font-weight:600;margin-right:.6rem}
+    @media (max-width:768px){
+      .lb-prev,.lb-next{font-size:1.8rem;width:44px;height:64px}
+      .lb #lbImg{max-width:94%;max-height:78%}
+    }
+    </style>
 </head>
 <body class="bg-prussian-blue text-light-beige font-body">
     <nav class="bg-prussian-blue p-4 border-b border-sunshine-yellow">
@@ -30,14 +70,14 @@
         </div>
     </nav>
 
-    <header class="bg-gradient-to-r from-prussian-blue to-dark-grey py-16">
+    <header class="bg-gradient-to-r from-prussian-blue to-dark-grey py-16" style="background:linear-gradient(135deg,#003049,#1A1A1A)">
         <div class="container mx-auto text-center">
             <h1 class="text-5xl font-heading mb-4 text-sunshine-yellow">Gallery</h1>
             <p class="text-xl font-body">Photos and videos from our concerts and performances</p>
         </div>
     </header>
 
-    <main class="container mx-auto py-12">
+    <main class="container mx-auto py-12 px-4">
 
         <!-- YouTube Section -->
         <section class="mb-16 text-center">
@@ -48,140 +88,72 @@
             </div>
         </section>
 
-        <!-- Photo Galleries -->
+        <!-- Photo Mosaic -->
         <section class="mb-16">
-            <h2 class="text-3xl font-heading text-sunshine-yellow mb-8">Concert Photos</h2>
+            <div class="mosaic">
 
-            <div class="mb-12">
-                <h3 class="text-2xl font-heading text-sunshine-yellow mb-4">Concerts</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <a href="images/Concerts/DSC_0047.JPG" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/DSC_0047.JPG" alt="Concert photo" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/DSC_0086.JPG" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/DSC_0086.JPG" alt="Concert photo" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/DSC_0095.JPG" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/DSC_0095.JPG" alt="Concert photo" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/DSC_0117.JPG" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/DSC_0117.JPG" alt="Concert photo" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/IMG_6658.JPG" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/IMG_6658.JPG" alt="Concert photo" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Sing Moray 2015.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Sing Moray 2015.jpg" alt="Sing Moray 2015" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Sing Moray 2017.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Sing Moray 2017.jpg" alt="Sing Moray 2017" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Sing Moray 2023, pluscarden audience.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Sing Moray 2023, pluscarden audience.jpg" alt="Sing Moray 2023 Pluscarden" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
+                <!-- Guuranda X RISE 2026 (newest) -->
+                <div class="mosaic-head">
+                    <div>
+                        <h2 class="font-heading text-sunshine-yellow text-2xl md:text-3xl font-bold">Guuranda X RISE — RISE Festival 2026</h2>
+                        <p class="text-sm text-light-beige opacity-80">Photography credit: Alexander Williamson</p>
+                    </div>
+                    <div class="rule"></div>
                 </div>
-            </div>
+                <div class="tile col-2 row-2"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson8.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson9.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson10.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile col-2"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson12.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile row-2"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson13.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson14.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson15.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile col-2 row-2"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson16.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson17.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson18.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile row-2"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson19.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile col-2"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson37.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson69.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile col-2 row-2"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson70.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson72.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson91.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile col-2"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson107.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
+                <div class="tile"><img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson111.jpg" alt="Guuranda X RISE — RISE Festival 2026"></div>
 
-            <div class="mb-12">
-                <h3 class="text-2xl font-heading text-sunshine-yellow mb-4">Guuranda X RISE — RISE Festival 2026</h3>
-                <p class="text-gray-400 mb-4 text-sm">Photos credit Alexander Williamson</p>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson8.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson8.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson9.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson9.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson10.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson10.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson12.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson12.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson13.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson13.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson14.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson14.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson15.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson15.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson16.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson16.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson17.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson17.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson18.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson18.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson19.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson19.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson37.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson37.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson69.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson69.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson70.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson70.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson72.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson72.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson91.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson91.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson107.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson107.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson111.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson111.jpg" alt="Guuranda X RISE performance" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
+                <!-- Quiz Night Summer 2025 -->
+                <div class="mosaic-head">
+                    <div>
+                        <h2 class="font-heading text-sunshine-yellow text-2xl md:text-3xl font-bold">Quiz Night — Summer 2025</h2>
+                    </div>
+                    <div class="rule"></div>
                 </div>
-            </div>
+                <div class="tile col-2 row-2"><img src="images/Socials/Quiz Night Summer 2025/happy choir.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile"><img src="images/Socials/Quiz Night Summer 2025/a good spread.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile"><img src="images/Socials/Quiz Night Summer 2025/catrionas and the waves.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile col-2"><img src="images/Socials/Quiz Night Summer 2025/quizmaster.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile row-2"><img src="images/Socials/Quiz Night Summer 2025/love soething.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile"><img src="images/Socials/Quiz Night Summer 2025/pot luck.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile"><img src="images/Socials/Quiz Night Summer 2025/quiz night sheets.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile col-2"><img src="images/Socials/Quiz Night Summer 2025/ready to go.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile"><img src="images/Socials/Quiz Night Summer 2025/the mozarts.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile"><img src="images/Socials/Quiz Night Summer 2025/winners 2.jpg" alt="Quiz Night Summer 2025"></div>
+                <div class="tile col-2"><img src="images/Socials/Quiz Night Summer 2025/winners.jpg" alt="Quiz Night Summer 2025"></div>
 
-            <h2 class="text-3xl font-heading text-sunshine-yellow mb-8">Social Photos</h2>
-
-            <div class="mb-12">
-                <h3 class="text-2xl font-heading text-sunshine-yellow mb-4">Quiz Night - Summer 2025</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <a href="images/Socials/Quiz Night Summer 2025/a good spread.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/a good spread.jpg" alt="A good spread" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/catrionas and the waves.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/catrionas and the waves.jpg" alt="Catrionas and the Waves" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/happy choir.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/happy choir.jpg" alt="Happy choir" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/love soething.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/love soething.jpg" alt="Love something" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/pot luck.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/pot luck.jpg" alt="Pot luck" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/quiz night sheets.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/quiz night sheets.jpg" alt="Quiz night sheets" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/quizmaster.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/quizmaster.jpg" alt="Quizmaster" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/ready to go.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/ready to go.jpg" alt="Ready to go" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/the mozarts.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/the mozarts.jpg" alt="The Mozarts" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/winners 2.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/winners 2.jpg" alt="Winners" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
-                    <a href="images/Socials/Quiz Night Summer 2025/winners.jpg" target="_blank" class="gallery-item rounded-lg overflow-hidden">
-                        <img src="images/Socials/Quiz Night Summer 2025/winners.jpg" alt="Winners" class="w-full h-48 object-cover hover:opacity-80 transition-opacity">
-                    </a>
+                <!-- Concerts (2015–2023) -->
+                <div class="mosaic-head">
+                    <div>
+                        <h2 class="font-heading text-sunshine-yellow text-2xl md:text-3xl font-bold">Concerts (2015–2023)</h2>
+                    </div>
+                    <div class="rule"></div>
                 </div>
+                <div class="tile col-2 row-2"><img src="images/Concerts/Sing Moray 2023, pluscarden audience.jpg" alt="Sing Moray 2023, Pluscarden"></div>
+                <div class="tile"><img src="images/Concerts/DSC_0047.JPG" alt="Sing Moray concert"></div>
+                <div class="tile"><img src="images/Concerts/DSC_0086.JPG" alt="Sing Moray concert"></div>
+                <div class="tile col-2"><img src="images/Concerts/DSC_0095.JPG" alt="Sing Moray concert"></div>
+                <div class="tile row-2"><img src="images/Concerts/DSC_0117.JPG" alt="Sing Moray concert"></div>
+                <div class="tile"><img src="images/Concerts/IMG_6658.JPG" alt="Sing Moray concert"></div>
+                <div class="tile"><img src="images/Concerts/Sing Moray 2015.jpg" alt="Sing Moray 2015"></div>
+                <div class="tile col-2"><img src="images/Concerts/Sing Moray 2017.jpg" alt="Sing Moray 2017"></div>
+
             </div>
         </section>
 
@@ -195,8 +167,48 @@
         </section>
     </main>
 
+    <!-- Slideshow viewer -->
+    <div id="lb" class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button class="lb-close" aria-label="Close (Esc)">&times;</button>
+        <button class="lb-prev" aria-label="Previous photo">&#8249;</button>
+        <img id="lbImg" alt="">
+        <button class="lb-next" aria-label="Next photo">&#8250;</button>
+        <div class="lb-caption"><span id="lbCount"></span><span id="lbCap"></span></div>
+    </div>
+
     <footer class="bg-dark-grey text-light-beige text-center py-4 border-t border-sunshine-yellow">
         <p class="font-body">&copy; 2026 Sing Moray. All rights reserved.</p>
     </footer>
+
+    <script>
+    (function(){
+        var imgs = Array.prototype.slice.call(document.querySelectorAll('.mosaic .tile img'));
+        var srcs = imgs.map(function(i){return i.src;});
+        var caps = imgs.map(function(i){return i.alt || '';});
+        var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
+        var lbCount = document.getElementById('lbCount'), lbCap = document.getElementById('lbCap');
+        var cur = 0;
+        function show(i){
+            cur = (i + imgs.length) % imgs.length;
+            lbImg.src = srcs[cur]; lbImg.alt = caps[cur];
+            lbCount.textContent = (cur + 1) + ' / ' + imgs.length;
+            lbCap.textContent = caps[cur];
+        }
+        function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function close(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+        imgs.forEach(function(img, i){ img.addEventListener('click', function(){ open(i); }); });
+        document.querySelector('.lb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(cur - 1); });
+        document.querySelector('.lb-next').addEventListener('click', function(e){ e.stopPropagation(); show(cur + 1); });
+        document.querySelector('.lb-close').addEventListener('click', function(e){ e.stopPropagation(); close(); });
+        lbImg.addEventListener('click', function(e){ e.stopPropagation(); show(cur + 1); });
+        lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+        document.addEventListener('keydown', function(e){
+            if(!lb.classList.contains('open')) return;
+            if(e.key === 'ArrowLeft') show(cur - 1);
+            else if(e.key === 'ArrowRight') show(cur + 1);
+            else if(e.key === 'Escape') close();
+        });
+    })();
+    </script>
 </body>
 </html>

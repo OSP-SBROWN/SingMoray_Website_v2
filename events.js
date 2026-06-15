@@ -37,13 +37,13 @@ const events = [
         ticketUrl: null
     },
     {
-        name: "SMCC Summer Concert",
+        name: "Sing Moray Sings... Schubert & Chopin",
         date: "2026-06-28",
         time: "4:00 PM",
         location: "St Giles Church, Elgin",
-        description: "Our summer concert featuring a wonderful selection of music. A perfect summer evening out.",
-        tickets: "Book online via <a href='https://www.ticketsource.com/booking/select/ngwwwjjddyok' target='_blank'>TicketSource</a>, or available via choir members.",
-        ticketUrl: "https://www.ticketsource.com/booking/select/ngwwwjjddyok"
+        description: "An afternoon celebrating the music of Franz Schubert and Fr&eacute;d&eacute;ric Chopin in the beautiful St Giles Church, Elgin. Doors open 3:30 PM.",
+        tickets: "Book online via <a href='https://www.ticketsource.com/whats-on/elgin/st-giles-church/sing-moray-sings-schubert-chopin/2026-06-28/16:00/t-aazlxea' target='_blank'>TicketSource</a>, or available via choir members.",
+        ticketUrl: "https://www.ticketsource.com/whats-on/elgin/st-giles-church/sing-moray-sings-schubert-chopin/2026-06-28/16:00/t-aazlxea"
     },
     {
         name: "Christmas Concert 2026",

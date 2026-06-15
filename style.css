@@ -45,7 +45,8 @@ nav {
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 70vh;
+    height: 80vh;
+    min-height: 520px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,21 +59,34 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('choir-background.jpg');
+    background-image: url('images/choir-background.jpg');
     background-size: cover;
     background-position: center;
-    filter: blur(8px); /* Apply blur */
+    filter: blur(2px) brightness(0.5);
+    transform: scale(1.05); /* hide blur edges */
+    z-index: 1;
+}
+
+/* Dark gradient scrim for legibility and depth */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,48,73,.35) 0%, rgba(0,48,73,.55) 60%, rgba(26,26,26,.75) 100%);
     z-index: 1;
 }
 
 .hero-section .overlay {
     position: relative;
     z-index: 2; /* Ensure content appears above the blurred background */
-    max-width: 600px;
-    background-color: rgba(0, 48, 73, 0.9); /* Prussian Blue with transparency */
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 640px;
+    background-color: rgba(0, 48, 73, 0.45);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(252, 191, 73, 0.35);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    animation: heroIn 0.9s ease both;
 }
 
 .hero-section h1 {
@@ -316,4 +330,96 @@ html {
 .gallery-img:hover {
     transform: scale(1.03);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================================
+   Brand colour utilities
+   The prebuilt Tailwind 2 CDN doesn't ship our custom palette,
+   so these classes (used across every page) need defining here.
+   ============================================================ */
+.bg-prussian-blue { background-color: var(--prussian-blue); }
+.text-prussian-blue { color: var(--prussian-blue); }
+.bg-sunshine-yellow { background-color: var(--sunshine-yellow); }
+.text-sunshine-yellow { color: var(--sunshine-yellow); }
+.border-sunshine-yellow { border-color: var(--sunshine-yellow); }
+.text-light-beige { color: var(--light-beige); }
+.bg-light-beige { background-color: var(--light-beige); }
+.bg-dark-grey { background-color: var(--dark-grey); }
+.text-orange { color: var(--orange); }
+.bg-orange { background-color: var(--orange); }
+.bg-imperial-red { background-color: var(--imperial-red); }
+.hover\:bg-orange:hover { background-color: var(--orange); }
+.hover\:bg-sunshine-yellow:hover { background-color: var(--sunshine-yellow); }
+.hover\:text-sunshine-yellow:hover { color: var(--sunshine-yellow); }
+.hover\:text-prussian-blue:hover { color: var(--prussian-blue); }
+/* Gradient colour stops (bg-gradient-to-* ships in the CDN; the custom stops don't) */
+.from-prussian-blue { --tw-gradient-from: #003049; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0,48,73,0)); }
+.to-dark-grey { --tw-gradient-to: #1A1A1A; }
+
+/* ===== Home page enhancements ===== */
+
+/* Hero entrance + eyebrow */
+@keyframes heroIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+.hero-eyebrow {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--sunshine-yellow);
+    margin-bottom: 0.5rem;
+}
+
+/* Scroll-down cue */
+.scroll-cue {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--light-beige);
+    opacity: 0.85;
+    animation: bob 1.8s ease-in-out infinite;
+}
+.scroll-cue:hover { color: var(--sunshine-yellow); }
+@keyframes bob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Stats band */
+.stats-band {
+    background-color: var(--dark-grey);
+    border-top: 3px solid var(--sunshine-yellow);
+    border-bottom: 3px solid var(--sunshine-yellow);
+}
+.stat { padding: 1.5rem 1rem; text-align: center; }
+.stat + .stat { border-left: 1px solid rgba(252, 191, 73, 0.2); }
+.stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    line-height: 1;
+    color: var(--sunshine-yellow);
+}
+.stat .label { color: var(--light-beige); font-size: 0.95rem; margin-top: 0.4rem; }
+
+/* Recent highlights strip */
+.highlight-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.highlight-img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in-view { opacity: 1; transform: none; }
+
+@media (max-width: 768px) {
+    .stat + .stat:nth-child(odd) { border-left: none; }
+    .hero-eyebrow { font-size: 0.7rem; }
 }

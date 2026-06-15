@@ -33,6 +33,7 @@
     <header class="hero-section text-center text-light-beige">
         <div class="hero-bg"></div> <!-- Blurred background container -->
         <div class="overlay p-8 rounded">
+            <p class="hero-eyebrow">Moray's Community Choir &middot; Est. 2013</p>
             <h1 class="text-5xl font-heading mb-4 text-sunshine-yellow">Sing Moray</h1>
             <p class="text-xl mb-6 font-body">A Community Choir for All</p>
             <p id="next-event-text" class="text-lg font-body mb-6">Join us for our upcoming performances across Moray</p>
@@ -41,11 +42,36 @@
                 <a href="#join" class="bg-transparent border-2 border-sunshine-yellow text-sunshine-yellow py-2 px-6 rounded font-semibold hover:bg-sunshine-yellow hover:text-prussian-blue transition-colors">Join Us</a>
             </div>
         </div>
+        <a href="#about" class="scroll-cue" aria-label="Scroll to learn more">
+            <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </a>
     </header>
+
+    <!-- Stats Band -->
+    <section class="stats-band">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4">
+            <div class="stat">
+                <div class="num">2013</div>
+                <div class="label">Singing together since</div>
+            </div>
+            <div class="stat">
+                <div class="num">Mondays</div>
+                <div class="label">Weekly rehearsals in Elgin</div>
+            </div>
+            <div class="stat">
+                <div class="num">All voices</div>
+                <div class="label">No audition required</div>
+            </div>
+            <div class="stat">
+                <div class="num">Live</div>
+                <div class="label">Concerts across Moray</div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="container mx-auto my-16">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 reveal">
             <h2 class="text-4xl font-heading mb-6 text-sunshine-yellow">About Sing Moray</h2>
             <p class="text-xl font-body max-w-3xl mx-auto">Sing Moray welcomes both experienced and novice singers to join us. Our community choir is dedicated to fostering a love for singing and bringing people together through the joy of music.</p>
         </div>
@@ -86,13 +112,30 @@
         </div>
     </section>
 
+    <!-- Recent Highlights -->
+    <section class="container mx-auto my-16 reveal">
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-heading mb-3 text-sunshine-yellow">Recent Highlights</h2>
+            <p class="text-lg font-body">Moments from Guuranda X RISE at the 2026 RISE Festival</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <a href="gallery.html"><img class="highlight-img" src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson16.jpg" alt="Guuranda X RISE performance"></a>
+            <a href="gallery.html"><img class="highlight-img" src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson70.jpg" alt="Guuranda X RISE performance"></a>
+            <a href="gallery.html"><img class="highlight-img" src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson37.jpg" alt="Guuranda X RISE performance"></a>
+            <a href="gallery.html"><img class="highlight-img" src="images/Concerts/Guuranda X Rise/Choir/RISE 2026 - Guuranda X Rise - credit Alexander Williamson107.jpg" alt="Guuranda X RISE performance"></a>
+        </div>
+        <div class="text-center mt-8">
+            <a href="gallery.html" class="inline-block bg-sunshine-yellow text-prussian-blue py-2 px-6 rounded font-semibold hover:bg-orange transition-colors">View Full Gallery</a>
+        </div>
+    </section>
+
     <!-- Join Us Section -->
-    <section id="join" class="bg-gradient-to-r from-prussian-blue to-dark-grey py-16">
+    <section id="join" class="bg-gradient-to-r from-prussian-blue to-dark-grey py-16" style="background:linear-gradient(135deg,#003049,#1A1A1A)">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-heading mb-6 text-sunshine-yellow">Join Our Choir</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">Ready to start your musical journey with us? We'd love to have you join our community!</p>
             
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="grid md:grid-cols-3 gap-8 mb-12 reveal">
                 <div class="bg-white rounded-lg p-6 shadow-lg">
                     <div class="text-4xl mb-4">🎵</div>
                     <h3 class="text-xl font-heading mb-3 text-prussian-blue">No Experience Needed</h3>
@@ -119,7 +162,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="container mx-auto my-16">
-        <div class="text-center">
+        <div class="text-center reveal">
             <h2 class="text-4xl font-heading mb-6 text-sunshine-yellow">Get in Touch</h2>
             <p class="text-xl mb-8">Have questions about joining or want to know more about our upcoming events?</p>
             
@@ -178,6 +221,24 @@
                     `Next up: ${next.name} — ${formatted}, ${next.location}`;
                 document.getElementById('next-event-btn').textContent = 'See Events';
             }
+        })();
+
+        // Scroll-reveal animations
+        (function() {
+            const els = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                els.forEach(el => el.classList.add('in-view'));
+                return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(en => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('in-view');
+                        io.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            els.forEach(el => io.observe(el));
         })();
     </script>
 </body>
